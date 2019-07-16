@@ -18,7 +18,10 @@ class File
 public:
 
   File(const std::string &fileName);
+
+#if defined(WIN32)
   File(const std::wstring &fileName);
+#endif
 
   Record readRecord();
 

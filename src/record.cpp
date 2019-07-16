@@ -1,6 +1,8 @@
 #include "record.h"
 #include "espexceptions.h"
 
+#include <cstring>
+
 
 ESP::Record::Record()
   : m_Header()

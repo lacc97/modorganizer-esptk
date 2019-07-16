@@ -4,6 +4,7 @@
 #include "espexceptions.h"
 #include <sstream>
 #include <bitset>
+#include <cstring>
 
 
 ESP::File::File(const std::string &fileName)
@@ -12,11 +13,13 @@ ESP::File::File(const std::string &fileName)
   init();
 }
 
+#if defined(WIN32)
 ESP::File::File(const std::wstring &fileName)
 {
   m_File.open(fileName, std::fstream::in | std::fstream::binary);
   init();
 }
+#endif
 
 
 class membuf : public std::basic_streambuf<char>
